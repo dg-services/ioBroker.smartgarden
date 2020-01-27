@@ -1,0 +1,76 @@
+{
+	"common": {
+		"name": "smartgarden",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "Smart Garden Control",
+		"titleLang": {
+			"en": "Smart Garden Control",
+			"de": "Intelligente Gartensteuerung",
+			"ru": "Smart Garden Control",
+			"pt": "Smart Garden Control",
+			"nl": "Smart Garden Control",
+			"fr": "Contrôle intelligent du jardin",
+			"it": "Controllo intelligente del giardino",
+			"es": "Smart Garden Control",
+			"pl": "Inteligentna kontrola ogrodu",
+			"zh-cn": "智能花园控制"
+		},
+		"desc": {
+			"en": "Control smart lawn mower from Gardena / Husqvara",
+			"de": "Steuern Sie intelligente Rasenmäher von Gardena / Husqvara",
+			"ru": "Управляйте умной газонокосилкой от Gardena / Husqvara",
+			"pt": "Cortador de grama inteligente de controle de Gardena / Husqvara",
+			"nl": "Bedien de slimme grasmaaier van Gardena / Husqvara",
+			"fr": "Contrôlez la tondeuse à gazon intelligente de Gardena / Husqvara",
+			"it": "Controlla il tosaerba intelligente di Gardena / Husqvara",
+			"es": "Controle el cortacésped inteligente de Gardena / Husqvara",
+			"pl": "Steruj inteligentną kosiarką Gardena / Husqvara",
+			"zh-cn": "从Gardena / Husqvara控制智能割草机"
+		},
+		"authors": [
+			"Dominik Gerstner <code@dg-home.de>"
+		],
+		"keywords": [
+			"Gardena Husqvara smart lawn mower"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "main.js",
+		"icon": "smartgarden.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/dg-services/ioBroker.smartgarden/master/admin/smartgarden.png",
+		"readme": "https://github.com/dg-services/ioBroker.smartgarden/blob/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "iot-systems",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=1.4.2"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
+}
