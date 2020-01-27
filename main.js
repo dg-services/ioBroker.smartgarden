@@ -7,6 +7,12 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const request = require('request');
+
+
+const HusqApiRequest = require(__dirname + '/lib/gardenaApiConnector');
+const gardenaApiConnector = require(__dirname + '/lib/gardenaApiConnector');
+const gardenaApi = new gardenaApiConnector(this);
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -20,7 +26,10 @@ class Smartgarden extends utils.Adapter {
 		super({
 			...options,
 			name: 'smartgarden',
+			
 		});
+		
+		
 		this.on('ready', this.onReady.bind(this));
 		this.on('objectChange', this.onObjectChange.bind(this));
 		this.on('stateChange', this.onStateChange.bind(this));
@@ -32,53 +41,22 @@ class Smartgarden extends utils.Adapter {
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	async onReady() {
+		
+		
 		// Initialize your adapter here
-
-		// The adapters config (in the instance object everything under the attribute "native") is accessible via
-		// this.config:
-		this.log.info('config option1: ' + this.config.option1);
-		this.log.info('config option2: ' + this.config.option2);
+		gardenaApi.setAdapter(this);
+		this.log.debug("Hier gehts morgen weiter");
+		
+		
 
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
 		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
 		*/
-		await this.setObjectAsync('testVariable', {
-			type: 'state',
-			common: {
-				name: 'testVariable',
-				type: 'boolean',
-				role: 'indicator',
-				read: true,
-				write: true,
-			},
-			native: {},
-		});
 
 		// in this template all states changes inside the adapters namespace are subscribed
 		this.subscribeStates('*');
-
-		/*
-		setState examples
-		you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-		*/
-		// the variable testVariable is set to true as command (ack=false)
-		await this.setStateAsync('testVariable', true);
-
-		// same thing, but the value is flagged "ack"
-		// ack should be always set to true if the value is received from or acknowledged from the target system
-		await this.setStateAsync('testVariable', { val: true, ack: true });
-
-		// same thing, but the state is deleted after 30s (getState will return null afterwards)
-		await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
-
-		// examples for the checkPassword/checkGroup functions
-		let result = await this.checkPasswordAsync('admin', 'iobroker');
-		this.log.info('check user admin pw iobroker: ' + result);
-
-		result = await this.checkGroupAsync('admin', 'admin');
-		this.log.info('check group user admin group admin: ' + result);
 	}
 
 	/**
