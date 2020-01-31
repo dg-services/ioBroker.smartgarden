@@ -7,12 +7,10 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
-const request = require('request');
-
-
-const HusqApiRequest = require(__dirname + '/lib/gardenaApiConnector');
 const gardenaApiConnector = require(__dirname + '/lib/gardenaApiConnector');
 const gardenaApi = new gardenaApiConnector(this);
+
+let adapter;
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -44,8 +42,14 @@ class Smartgarden extends utils.Adapter {
 		
 		
 		// Initialize your adapter here
+		adapter = this;
 		gardenaApi.setAdapter(this);
-		this.log.debug("Hier gehts morgen weiter");
+		
+		try{
+				var replyJson = await gardenaApi.getAccessToken();
+		} catch(error){
+				adapter.log.error(error);
+		}
 		
 		
 
