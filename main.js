@@ -12,6 +12,11 @@ const gardenaApi = new gardenaApiConnector(this);
 
 let adapter;
 
+function Sleep(milliseconds) {
+   return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
@@ -46,7 +51,13 @@ class Smartgarden extends utils.Adapter {
 		gardenaApi.setAdapter(this);
 		
 		try{
-				var replyJson = await gardenaApi.getAccessToken();
+				await gardenaApi.getAccessToken();
+				await gardenaApi.getLocation();
+				await gardenaApi.getDevices();
+				// await Sleep(3000);
+				// var replyJson = await gardenaApi.refreshToken();
+				 //await Sleep(3000);
+				 //var replyJson = await gardenaApi.logout();
 		} catch(error){
 				adapter.log.error(error);
 		}
@@ -70,6 +81,7 @@ class Smartgarden extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			this.log.info('cleaned everything up...');
+			gardenaApi.logout();
 			callback();
 		} catch (e) {
 			callback();
