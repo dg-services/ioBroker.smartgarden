@@ -55,7 +55,7 @@ class Smartgarden extends utils.Adapter {
 				await gardenaApi.getLocation();
 				await gardenaApi.getDevices();
 				await Sleep(1000);
-				await gardenaApi.execCommand('bb13470a-1a1b-421d-b755-95b66cd08751.ce69942b-9c98-4a3f-a16a-0f018c717cd1');
+				await gardenaApi.execCommand('ce69942b-9c98-4a3f-a16a-0f018c717cd1');
 				// var replyJson = await gardenaApi.refreshToken();
 				 //await Sleep(3000);
 				 //var replyJson = await gardenaApi.logout();
