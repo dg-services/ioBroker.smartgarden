@@ -11,6 +11,8 @@ const gardenaApiConnector = require(__dirname + '/lib/gardenaApiConnector');
 const gardenaApi = new gardenaApiConnector(this);
 
 let adapter;
+let loop;
+let loopInterval = 0;
 
 function Sleep(milliseconds) {
    return new Promise(resolve => setTimeout(resolve, milliseconds));
@@ -51,11 +53,29 @@ class Smartgarden extends utils.Adapter {
 		gardenaApi.setAdapter(this);
 		
 		try{
-				await gardenaApi.getAccessToken();
-				await gardenaApi.getLocation();
+			await gardenaApi.getAccessToken();
+			await gardenaApi.getLocation();
+			
+			
+			loopInterval = parseFloat(adapter.config.loopInterval);
+			if(isNaN(loopInterval)) {
+				loopInterval = 10;
+				adapter.log.debug('Invalid loopTime, set loopTime to 10');
+			}
+						
+			if(loopInterval < 1){
+				loopInterval = 1;
+			}				
+			loopInterval = loopInterval * 60000;
+				
+			adapter.log.debug('Loop Interval set to ' + loopInterval / 60000 + ' Minutes');
+			
+			loop = true;
+			while(loop){
 				await gardenaApi.getDevices();
-				await Sleep(1000);
-				await gardenaApi.execCommand('ce69942b-9c98-4a3f-a16a-0f018c717cd1');
+				await Sleep(loopInterval); // 300000 = 5 Minuten
+			}
+				//await gardenaApi.execCommand('ce69942b-9c98-4a3f-a16a-0f018c717cd1');
 				// var replyJson = await gardenaApi.refreshToken();
 				 //await Sleep(3000);
 				 //var replyJson = await gardenaApi.logout();
@@ -82,6 +102,7 @@ class Smartgarden extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			this.log.info('cleaned everything up...');
+			loop = false;
 			gardenaApi.logout();
 			callback();
 		} catch (e) {

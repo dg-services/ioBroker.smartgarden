@@ -38,4 +38,9 @@ systemDictionary = {
 		'en': 'Authentication State (provided by Husqvarna)',
 		'de': 'Authentikation State (von Husqvarna)'
 	}
+	'loopInterval': {
+		'en': 'Refresh Interval in minutes',
+		'de': 'Aktualisierungsinterval in minuten'
+	}
+	
 };
