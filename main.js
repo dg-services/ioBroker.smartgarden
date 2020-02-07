@@ -70,6 +70,7 @@ class Smartgarden extends utils.Adapter {
 				
 			adapter.log.debug('Loop Interval set to ' + loopInterval / 60000 + ' Minutes');
 			
+			adapter.log.info('Smartgarden Adapter up and running');
 			loop = true;
 			while(loop){
 				await gardenaApi.getDevices();
@@ -81,6 +82,8 @@ class Smartgarden extends utils.Adapter {
 				 //var replyJson = await gardenaApi.logout();
 		} catch(error){
 				adapter.log.error(error);
+				throw 'Alles Mist! Ich bin raus!';
+				process.exit(1);
 		}
 		
 		
