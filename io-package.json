@@ -44,10 +44,10 @@
 		]
 	},
 	"native": {
-		"user": 'sample@email.com',
+		"user": "sample@email.com",
 		"passwd": "*****",
-		"appKey": "AAAA-BBBB-CCCC",
-		"loopInterval": 1
+		"appKey": "AAA-BBB-XXX",
+		"loopInterval": "1"
 	},
 	"objects": [],
 	"instanceObjects": []
