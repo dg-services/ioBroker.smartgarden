@@ -21,7 +21,7 @@ After you registered your user, you need to setup an application within the webs
 
 Now put in your credentials and your application key in the adapter config, start the adapter and have fun !!!
 
-!! Your credentials and application key will keept in your setup, they will not be transvered to any other website beside to login with the gardena api. !!
+Your credentials and application key will be keept in your setup, they will never be transvered to any other website beside to login with the gardena api.
 
 
 ## Changelog
