@@ -18,6 +18,9 @@ This adapter uses the latest husqvarna api to get the data for a lawn mower.
 
 ## Changelog
 
+### 0.1.0
+* (Dominik Gerstner) adapter functional with constant refresh
+
 ### 0.0.1
 * (Dominik Gerstner) initial release
 
