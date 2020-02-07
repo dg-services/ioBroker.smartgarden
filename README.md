@@ -15,6 +15,14 @@
 ## Control smart lawn mower from Gardena / Husqvara.
 This adapter uses the latest husqvarna api to get the data for a lawn mower.
 
+# HowTo
+In order to be able to use this adapter you will need a user from husqvarna that must be created here : https://developer.1689.cloud/.
+After you registered your user, you need to setup an application within the website and assign the Gardena service to it. 
+
+Now put in your credentials and your application key in the adapter config, start the adapter and have fun !!!
+
+!! Your credentials and application key will keept in your setup, they will not be transvered to any other website beside to login with the gardena api. !!
+
 
 ## Changelog
 
