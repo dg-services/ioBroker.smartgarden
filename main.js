@@ -15,7 +15,7 @@ let loop;
 let loopInterval = 0;
 
 function Sleep(milliseconds) {
-   return new Promise(resolve => setTimeout(resolve, milliseconds));
+	return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
 
@@ -28,6 +28,7 @@ class Smartgarden extends utils.Adapter {
 	 * @param {Partial<ioBroker.AdapterOptions>} [options={}]
 	 */
 	constructor(options) {
+		// @ts-ignore
 		super({
 			...options,
 			name: 'smartgarden',
@@ -76,14 +77,9 @@ class Smartgarden extends utils.Adapter {
 				await gardenaApi.getDevices();
 				await Sleep(loopInterval); // 300000 = 5 Minuten
 			}
-				//await gardenaApi.execCommand('ce69942b-9c98-4a3f-a16a-0f018c717cd1');
-				// var replyJson = await gardenaApi.refreshToken();
-				 //await Sleep(3000);
-				 //var replyJson = await gardenaApi.logout();
 		} catch(error){
-				adapter.log.error(error);
-				throw 'Alles Mist! Ich bin raus!';
-				process.exit(1);
+			adapter.log.error(error);
+			throw 'Alles Mist! Ich bin raus!';
 		}
 		
 		
