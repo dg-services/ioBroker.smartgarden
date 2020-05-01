@@ -56,27 +56,32 @@ class Smartgarden extends utils.Adapter {
 		try{
 			await gardenaApi.getAccessToken();
 			await gardenaApi.getLocation();
+			await gardenaApi.getWebSocketInfo();
+			await gardenaApi.getWebsocket();
+			//gardenaApi.echoClient();
 			
-			
-			loopInterval = parseFloat(adapter.config.loopInterval);
-			if(isNaN(loopInterval)) {
-				loopInterval = 10;
-				adapter.log.debug('Invalid loopTime, set loopTime to 10');
-			}
+			// loopInterval = parseFloat(adapter.config.loopInterval);
+			// if(isNaN(loopInterval)) {
+			// 	loopInterval = 10;
+			// 	adapter.log.debug('Invalid loopTime, set loopTime to 10');
+			// }
 						
-			if(loopInterval < 1){
-				loopInterval = 1;
-			}				
-			loopInterval = loopInterval * 60000;
+			// if(loopInterval < 1){
+			// 	loopInterval = 1;
+			// }				
+			// loopInterval = loopInterval * 60000;
 				
-			adapter.log.debug('Loop Interval set to ' + loopInterval / 60000 + ' Minutes');
+			// adapter.log.debug('Loop Interval set to ' + loopInterval / 60000 + ' Minutes');
 			
-			adapter.log.info('Smartgarden Adapter up and running');
-			loop = true;
-			while(loop){
-				await gardenaApi.getDevices();
-				await Sleep(loopInterval); // 300000 = 5 Minuten
-			}
+			// adapter.log.info('Smartgarden Adapter up and running');
+			// loop = true;
+
+			// gardenaApiSocket.echoClient();
+
+			// while(loop){
+			// 	await gardenaApi.getDevices();
+			// 	await Sleep(loopInterval); // 300000 = 5 Minuten
+			// }
 		} catch(error){
 			adapter.log.error(error);
 			throw 'Alles Mist! Ich bin raus!';
