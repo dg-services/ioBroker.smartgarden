@@ -8,7 +8,7 @@
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
 const gardenaApiConnector = require(__dirname + '/lib/gardenaApiConnector');
-const gardenaApi = new gardenaApiConnector(this);
+let gardenaApi;
 
 let adapter;
 let loop;
@@ -51,13 +51,20 @@ class Smartgarden extends utils.Adapter {
 		
 		// Initialize your adapter here
 		adapter = this;
-		gardenaApi.setAdapter(this);
-		
+		//gardenaApi.setAdapter(this);
+		gardenaApi = new gardenaApiConnector(this);
 		try{
-			await gardenaApi.getAccessToken();
-			await gardenaApi.getLocation();
-			await gardenaApi.getWebSocketInfo();
-			await gardenaApi.getWebsocket();
+
+			await gardenaApi.login();
+
+			// await gardenaApi.getAccessToken();
+			// await gardenaApi.getLocation();
+			// await gardenaApi.getWebSocketInfo();
+			// await gardenaApi.getWebsocket();
+
+			// await Sleep(60000); // 300000 = 5 Minuten
+			// await gardenaApi.execCommand('9c817753-9688-4553-9d47-1886f8bffd68');
+
 			//gardenaApi.echoClient();
 			
 			// loopInterval = parseFloat(adapter.config.loopInterval);
