@@ -56,39 +56,11 @@ class Smartgarden extends utils.Adapter {
 		try{
 
 			await gardenaApi.login();
-
 			// await gardenaApi.getAccessToken();
 			// await gardenaApi.getLocation();
 			// await gardenaApi.getWebSocketInfo();
 			// await gardenaApi.getWebsocket();
 
-			// await Sleep(60000); // 300000 = 5 Minuten
-			// await gardenaApi.execCommand('9c817753-9688-4553-9d47-1886f8bffd68');
-
-			//gardenaApi.echoClient();
-			
-			// loopInterval = parseFloat(adapter.config.loopInterval);
-			// if(isNaN(loopInterval)) {
-			// 	loopInterval = 10;
-			// 	adapter.log.debug('Invalid loopTime, set loopTime to 10');
-			// }
-						
-			// if(loopInterval < 1){
-			// 	loopInterval = 1;
-			// }				
-			// loopInterval = loopInterval * 60000;
-				
-			// adapter.log.debug('Loop Interval set to ' + loopInterval / 60000 + ' Minutes');
-			
-			// adapter.log.info('Smartgarden Adapter up and running');
-			// loop = true;
-
-			// gardenaApiSocket.echoClient();
-
-			// while(loop){
-			// 	await gardenaApi.getDevices();
-			// 	await Sleep(loopInterval); // 300000 = 5 Minuten
-			// }
 		} catch(error){
 			adapter.log.error(error);
 			throw 'Alles Mist! Ich bin raus!';
@@ -129,10 +101,10 @@ class Smartgarden extends utils.Adapter {
 	onObjectChange(id, obj) {
 		if (obj) {
 			// The object was changed
-			this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
+			//this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
 		} else {
 			// The object was deleted
-			this.log.info(`object ${id} deleted`);
+			//this.log.info(`object ${id} deleted`);
 		}
 	}
 
@@ -144,10 +116,10 @@ class Smartgarden extends utils.Adapter {
 	onStateChange(id, state) {
 		if (state) {
 			// The state was changed
-			this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+			//this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 		} else {
 			// The state was deleted
-			this.log.info(`state ${id} deleted`);
+			//this.log.info(`state ${id} deleted`);
 		}
 	}
 
