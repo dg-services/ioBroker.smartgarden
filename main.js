@@ -30,9 +30,7 @@ class Smartgarden extends utils.Adapter {
 	constructor(options) {
 		// @ts-ignore
 		super({
-			...options,
-			name: 'smartgarden',
-			
+			name: 'smartgarden'
 		});
 		
 		
