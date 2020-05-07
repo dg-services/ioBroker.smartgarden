@@ -1,15 +1,6 @@
 ![Logo](admin/smartgarden.png)
 # ioBroker.smartgarden
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)](https://www.npmjs.com/package/iobroker.smartgarden)
-![Number of Installations (latest)](http://iobroker.live/badges/smartgarden-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/smartgarden-stable.svg)
-[![Dependency Status](https://img.shields.io/david/dg-services/iobroker.smartgarden.svg)](https://david-dm.org/dg-services/iobroker.smartgarden)
-[![Known Vulnerabilities](https://snyk.io/test/github/dg-services/ioBroker.smartgarden/badge.svg)](https://snyk.io/test/github/dg-services/ioBroker.smartgarden)
-
-[![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)](https://nodei.co/npm/iobroker.smartgarden/)
-
 ## smartgarden adapter for ioBroker
 
 ## Control smart lawn mower from Gardena / Husqvara.
